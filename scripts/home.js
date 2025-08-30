@@ -1,20 +1,44 @@
 const validPin = 5678;
 
+// Re-usable functions
+function getInputValueNumber (id){
+    const inputFieldValueNumber = parseInt(document.getElementById(id).value);
+
+    return inputFieldValueNumber;
+}
+
+function getInputValue(id){
+    const inputFieldValue = document.getElementById(id).value;
+    return inputFieldValue;
+}
+
+function getInnerTextNumber(id){
+    const innerTextNumber = parseInt(document.getElementById(id).innerText);
+
+    return innerTextNumber;
+}
+
+function setInnerText(value){
+    const availableBalanceElement = document.getElementById('available-balance').innerText = value;
+
+    return availableBalanceElement;
+}
+
 // Add Money feature
 document.getElementById('btn-add-money').addEventListener('click', function(e){
     e.preventDefault();
 
-    const bank = document.getElementById('bank').value;
-    const accountNumber = document.getElementById('account-number').value;
-    const amount = parseInt(document.getElementById('add-amount').value);
-    const pin = parseInt(document.getElementById('add-pin').value);
-    const availabeBalance = parseInt(document.getElementById('available-balance').innerText);
+    const bank = getInputValue('bank');
+    const accountNumber = getInputValue('account-number');
+    const amount = getInputValueNumber('add-amount');
+    const pin = getInputValueNumber('add-pin');
+    const availabeBalance = getInnerTextNumber('available-balance');
 
     if (bank === 'Select a bank'){
         alert("Bank field can't be empty !");
         return;
     }
-    if (accountNumber.length < 11){
+    if (accountNumber.length < 11 || accountNumber.length > 11){
         alert('Please provide a valid account number !');
         return;
     }
@@ -22,20 +46,20 @@ document.getElementById('btn-add-money').addEventListener('click', function(e){
         alert("Incorrect Pin !");
         return;
     }
-
+    
     const totalNewAvailableBalance = amount + availabeBalance;
 
-    document.getElementById('available-balance').innerText = totalNewAvailableBalance;
+    setInnerText(totalNewAvailableBalance);
 })
 
 // Cashout Feature
 document.getElementById('btn-withdraw').addEventListener('click', function(e){
     e.preventDefault();
 
-    const agentNumber = document.getElementById('agent-number').value;
-    const pin = parseInt(document.getElementById('withdraw-pin').value);
-    const amount = parseInt(document.getElementById('withdraw-amount').value);
-    const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+    const agentNumber = getInputValue('agent-number');
+    const pin = getInputValueNumber('withdraw-pin');
+    const amount = getInputValueNumber('withdraw-amount');
+    const availableBalance = getInnerTextNumber('available-balance');
 
     if (agentNumber.length < 11){
         alert('Enter a valid number !');
@@ -46,9 +70,15 @@ document.getElementById('btn-withdraw').addEventListener('click', function(e){
         return;
     }
 
-    const totalNewAvailableBalance = availableBalance - amount;
+    
+    if (amount <= availableBalance ){
+        const totalNewAvailableBalance = availableBalance - amount;
 
-    document.getElementById('available-balance').innerText = totalNewAvailableBalance;
+        setInnerText(totalNewAvailableBalance);
+    }
+    else{
+        alert("Insufficient Balance ! :(");
+    }
 })
 
 // toggling feature
@@ -105,4 +135,3 @@ document.getElementById('transactions-button').addEventListener('click', functio
     document.getElementById('pay-bill-parent').style.display = 'none';
     document.getElementById('transactions-parent').style.display = 'block';
 })
-
