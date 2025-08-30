@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#f4f5f7]">
+<body class="bg-[#f4f5f7] h-250">
     <div class="max-w-lg mx-auto bg-white rounded-b-xl">
         <div class="min-h-[50px] flex justify-between items-center border-b-1 border-gray-400 p-3">
             <div class="flex">
@@ -42,27 +42,27 @@
         </div>
 
         <div class="h-[200px] grid grid-cols-3 gap-4 p-3">
-            <div id="add-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="add-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/wallet1.png" class="mx-auto" alt="">
                 <h2>Add Money</h2>
             </div>
-            <div id="cash-out-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="cash-out-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/send1.png" class="mx-auto" alt="">
                 <h2>CashOut</h2>
             </div>
-            <div id="transfer-money-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="transfer-money-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/money1.png" class="mx-auto" alt="">
                 <h2>Transfer Money</h2>
             </div>
-            <div id="get-bonus-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="get-bonus-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/bonus1.png" class="mx-auto" alt="">
                 <h2>Get Bonus</h2>
             </div>
-            <div id="pay-bill-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="pay-bill-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/purse1.png" class="mx-auto" alt="">
                 <h2>Pay Bill</h2>
             </div>
-            <div id="transactions-button" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="transactions-button" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img src="../assets/transaction1.png" class="mx-auto" alt="">
                 <h2>Transactions</h2>
             </div>
@@ -71,7 +71,7 @@
 
     <div class="all-form-sections max-w-lg mx-auto">
         <!-- Add money -->
-        <div id="add-money-parent">
+        <div class="form" id="add-money-parent">
             <h1 class="my-5 font-bold">Add Money</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mb-3">
@@ -107,8 +107,9 @@
                     money</button>
             </form>
         </div>
+
         <!-- Cash Out -->
-        <div id="cash-out-parent" style="display: none;">
+        <div class="form" id="cash-out-parent" style="display: none;">
             <h1 class="my-5 font-bold">Cash Out</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div>
@@ -130,28 +131,36 @@
                         class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
                 </div>
 
-                <button id="btn-withdraw" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white">Withdraw Money</button>
+                <button id="btn-withdraw" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white">Withdraw
+                    Money</button>
             </form>
         </div>
 
-        <div id="transfer-money-parent" style="display: none;">
+        <!-- transfer money -->
+        <div class="form" id="transfer-money-parent" style="display: none;">
             <h1 class="my-5 font-bold">Transfer Money</h1>
             <h1>Will be available soon ! :D</h1>
         </div>
 
-        <div id="get-bonus-parent" style="display: none;">
+        <div class="form" id="get-bonus-parent" style="display: none;">
             <h1 class="my-5 font-bold">Get Bonus</h1>
             <h1>Will be available soon ! :D</h1>
         </div>
 
-        <div id="pay-bill-parent" style="display: none;">
+        <div class="form" id="pay-bill-parent" style="display: none;">
             <h1 class="my-5 font-bold">Pay Bill</h1>
             <h1>Will be available soon ! :D</h1>
         </div>
+        <!-- transactions -->
+        <div class="form" id="transactions-parent" style="display: none;">
+            <div class="flex justify-between items-center">
+                <h1 class="my-5 font-bold">Transaction History</h1>
+                <p class="text-[#08080880]">View All</p>
+            </div>
 
-        <div id="transactions-parent" style="display: none;">
-            <h1 class="my-5 font-bold">Transactions</h1>
-            <h1>Will be available soon ! :D</h1>
+            <div id="transaction-container">
+                
+            </div>
         </div>
     </div>
     <script src="../scripts/home.js"></script>
